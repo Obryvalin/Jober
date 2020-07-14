@@ -4,21 +4,19 @@
 
     "host": "localhost",
     "port": 1988,
-    "database": "FBR24_FNS",
+    "database": "Jober",
     "backupdir":"\\..\\..\\backup",
     
     "dropQueries":[
-      "DROP TABLE public.log",
-      "DROP TABLE public.resdata",
-      "DROP TABLE public.reqdata",
-      "DROP TABLE public.workers",
-      "DROP TABLE public.errorlog"
+      "DROP TABLE public.logs",
+      "DROP TABLE public.joblog",
+      "DROP TABLE public.timetable"
+
     ],
     "createQueries":[
-      "CREATE TABLE public.log (    source character varying,    id character varying,    worker character varying,    snd1 timestamp without time zone,    rep1 timestamp without time zone,    snd2 timestamp without time zone,    rep2 timestamp without time zone,   result character varying)",
-      "CREATE TABLE public.reqdata (source character varying,    id character varying,    guid character varying,     inn character varying)",
-      "CREATE TABLE public.resdata (source character varying,    id character varying,    nomer character varying,    ifns character varying,  date character varying ,  link character varying)",
-      "CREATE TABLE public.workers (workerName character varying, updated timestamp without time zone)",
-      "CREATE TABLE public.errorlog (error character varying, datetime timestamp without time zone)"
+      "CREATE TABLE public.logs (process character varying, jobname character varying, jobdate date,jobtype character varying, log character varying)",
+      "CREATE TABLE public.joblog (process character varying, jobname character varying,    filename character varying,     jstart timestamp without time zone, jend timestamp without time zone, jsignoff timestamp without time zone, syscc integer)",
+      "CREATE TABLE public.timetable (weekday integer,starttime time without time zone, process character varying, jobname character varying, filepath character varying)"
+     
     ]
   }

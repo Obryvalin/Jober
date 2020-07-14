@@ -9,7 +9,7 @@ if (!fs.existsSync(logpath)){fs.writeFileSync(logpath,"")}
 function cls(processName, workerName) {
   console.clear();
   console.log("=====================");
-  console.log("Process: " + chalk.bold.cyanBright(processName));
+  console.log("Process: " + chalk.bold.cyanBright (processName));
   console.log("Worker: " + chalk.bold.cyanBright(workerName));
   var date = dateformat('yy.MM.dd hh:mm:ss.SSS', new Date());
   console.log("Текущее время: " + date);

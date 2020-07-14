@@ -17,6 +17,24 @@ function json2html(json) {
   return result;
 }
 
+function fetchTable (url,id){
+  fetch(url).then(
+    (response) =>{
+      response.json().then((resdata)=>{
+        if (resdata.error){
+          document.querySelector("#"+id).innerHTML = resdata.error;
+        }
+        if (resdata.data.length>0){
+          document.querySelector("#"+id).innerHTML= json2html(resdata.result) ;
+        }
+        else{
+          document.querySelector("#"+id).innerHTML = resdata.error;
+      }
+      })
+    }
+  )
+}
+
 const Form = document.querySelector("form");
 Form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -38,7 +56,7 @@ Form.addEventListener("submit", (e) => {
           if (resdata.result.length>0) {
             // console.log(resdata);
             document.querySelector("#fetch-resdata").style.display = "block";
-            document.querySelector("#fetch-resdata").innerHTML= json2html(resdata.result)         ;
+            document.querySelector("#fetch-resdata").innerHTML= json2html(resdata.result);
             document.querySelector("#fetch-msg").textContent = "";
           } else{
             document.querySelector("#fetch-msg").textContent = "Not found!";

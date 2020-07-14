@@ -77,7 +77,7 @@ libname JobLib    postgres
 	run;
 
 	data joblib.joblog;
-		format PROCESS $10. JOBNAME $8. Filename $50.  JSTART JEND JSIGNOFF datetime. syscc 10.;
+		format PROCESS $10. JOBNAME $8. Filename $100.  JSTART JEND JSIGNOFF datetime. syscc 10.;
 	run;
 %mend;
 
@@ -103,7 +103,7 @@ quit;
 	quit;
 %mend;
 %macro Timetable_show;
-	%put ÑÅÃÎÄÍß %sysfunc(weekday(%sysfunc(today()))):;
+	%put ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %sysfunc(weekday(%sysfunc(today()))):;
 	%put;
 	data _null_;
 		set joblib.Timetable;
@@ -111,7 +111,7 @@ quit;
 		put Starttime @15 JOBNAME @30 FilePath;
 	run;
 	%put +--------------------------------+;
-	%put ÇÀÂÒÐÀ %sysfunc(weekday(%sysfunc(today())+1)):;
+	%put ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %sysfunc(weekday(%sysfunc(today())+1)):;
 	%put;
 	data _null_;
 		set joblib.Timetable;
@@ -129,7 +129,7 @@ quit;
 	%put +--------------------------------+;
 	%put Jober &Process;
 	%if &scnt ^= 0 %then %put LOOP STEP : &Scnt;
-	%let fstime =   %sysfunc(putn(%sysfunc(time()), time.)); %put Öèêë &fstime - Íà÷àëî: &Starttime;
+	%let fstime =   %sysfunc(putn(%sysfunc(time()), time.)); %put ï¿½ï¿½ï¿½ï¿½ &fstime - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: &Starttime;
 	%put +--------------------------------+;
 	%put ;
 %mend cls;
@@ -163,7 +163,7 @@ quit;
 	%let chlog_status = 0;
 	options xsync;
 	x "del /Q  &logfile";
- 	dm "log; file ""&logfile"""; /*êóäà áóäåì çàïèñûâàòü "ëîã-ôàéë" */
+ 	dm "log; file ""&logfile"""; /*ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ "ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½" */
 	
 	data _null_;
 		INFILE "&logfile"  dsd dlm = '';
@@ -177,7 +177,7 @@ quit;
 	%put &chlog_status;
 	%if &chlog_status = 1 %then %do;
 		%put "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
-		%put "!!!!!!Â ÏÐÎÃÐÀÌÌÅ ÅÑÒÜ ÎØÈÁÊÀ!!!!";
+		%put "!!!!!!ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!!!";
 		%put "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
 		%abort CANCEL;
 %end;
@@ -350,7 +350,7 @@ x "wscript W:\Script_Dump\StatusChecker\Chronopost.vbs ""Jober &Process"" right 
 		%cls;
 		%timetable_show;
 		%put CTIME = %sysfunc(putn(&CTIME,time.));
-		%put Î×ÅÐÅÄÜ:;
+		%put ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:;
 		data timetable;
 			set joblib.timetable;
 			if Process = "&Process" and weekday = weekday(date()) and Starttime >= &CTIME;
