@@ -53,7 +53,7 @@ h1 {
 
 table {
   font: 12pt/8pt monospace;
- 
+
   margin: auto;
   width: 400px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
@@ -64,7 +64,7 @@ table {
 }
 th {
   color: white;
-  background-color: rgba(64, 150, 238, 1);
+  background-color: rgb(238, 128, 64);
   font-size: 16px;
 }
 td {
@@ -125,7 +125,7 @@ a {
   border: 1px;
   text-align: left;
   border-radius: 0px;
-  background: rgb(11, 53, 95); /* Old browsers */
+  background: rgb(255, 135, 66); /* Old browsers */
 }
 
 .obr-footer {
@@ -139,11 +139,11 @@ a {
   text-align: left;
 }
 
-.menu{
-  padding:15px;
+.menu {
+  padding: 15px;
   font: 14pt/8pt monospace;
-  font-family: Arial, Helvetica, sans-serif;}
-
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 .subhead {
   color: white;
@@ -155,7 +155,7 @@ a {
   border: 1px;
   text-align: left;
   border-radius: 0px;
-  background: rgb(122, 188, 255); /* Old browsers */
+  background: rgb(255, 182, 122); /* Old browsers */
 }
 
 .obr-Progress {
@@ -163,7 +163,7 @@ a {
   height: 20px;
   width: 300px;
 
-  background-color: #3399ff;
+  background-color: #ff9633;
   border: 1px solid black;
 
   display: flex;
@@ -187,7 +187,7 @@ a {
   animation-duration: 2s;
 
   height: 10px;
-  background-color: #99ddff;
+  background-color: #ffb999;
   margin: 5px;
   margin-bottom: 5px;
 }
@@ -199,7 +199,7 @@ a {
   padding: 5px;
 }
 .obr-input {
-  margin:1px;
+  margin: 1px;
   width: 150px;
   height: 20px;
   padding: 8px;
@@ -211,12 +211,12 @@ a {
 }
 
 .obr-submit {
-  margin:5px;
+  margin: 5px;
   width: 80px;
   height: 20px;
   color: white;
   font-family: arial;
-  background: rgb(11, 53, 95);
+  background: rgb(95, 42, 11);
   border: 1px solid #888888;
 }
 .obr-submit:hover {
