@@ -32,23 +32,31 @@ const query = (sql,callback) =>{
       callback();
     }
     var donecnt = 0;
+    
     queries.forEach((query) => {
+      
       pool.query(query, (err, res) => {
         if (err) {
           log.timestamp(chalk.red(err))
+          log.timestamp("Query was: "+query)
+          logError(chalk.red(err));
         }
         donecnt = donecnt + 1;
       });
     });
     const intid = setInterval(() => {
+      log.timestamp(donecnt+"/"+qcnt)
       if (donecnt == qcnt) {
         clearInterval(intid);
       
         callback();
       }
+      if (donecnt > qcnt){
+        console.log("Multiquery error! Donecnt:"+donecnt+", qcnt:"+qcnt)
+      }
+      
     }, 50);
   };
-
   
 const init = () => {
     
