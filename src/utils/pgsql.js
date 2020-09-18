@@ -45,7 +45,7 @@ const query = (sql,callback) =>{
       });
     });
     const intid = setInterval(() => {
-      log.timestamp(donecnt+"/"+qcnt)
+      // log.timestamp(donecnt+"/"+qcnt)
       if (donecnt == qcnt) {
         clearInterval(intid);
       
@@ -71,21 +71,26 @@ const init = () => {
     
   };
 
-const getTimetable = ()=>{
+const getTimetable = (callback)=>{
     query("SELECT * from timetable",(err,result)=>{
-        callback(result)    
+        callback(result.rows)    
     })
     
 }
-const getJoblog = ()=>{
+const getJoblog = (callback)=>{
     query("Select * from joblog limit 50",(err,result)=>{
-        callback(result)
+        callback(result.rows)
     })
    
 }
-const getLogs = (jobname,date)=>{
+const getLogs = (jobname,date,callback)=>{
     query("Select * from logs where jobname='"+jobname+"' and date='"+date+"'",(err,result)=>{
-        callback(result)
+        callback(result.rows)
+    })
+}
+const addJob = (reqdata,callback) =>{
+    query("Insert into Timetable(weekday,starttime,process,jobname,filepath) values("+reqdata.weekday+","+reqdata.time+",'"+reqdata.process+"','"+reqdata.jobName+"','"+reqdata.path+"')",(err,res)=>{
+      callback(err || res)
     })
 }
 
@@ -95,5 +100,6 @@ module.exports = {
     init:init,
     getTimetable:getTimetable,
     getJoblog:getJoblog,
-    getLogs:getLogs
+    getLogs:getLogs,
+    addJob:addJob
 }

@@ -14,21 +14,37 @@ hbs.registerPartials(path.join(__dirname, "../templates/partials"));
 const port= 80;
 
 
-webserver.get('/timetable',(req,res)=>{
+webserver.get('/getTimetable',(req,res)=>{
     pgsql.getTimetable((result)=>{
         res.send({result})
     })
 })
-webserver.get('/joblog',(req,res)=>{
+webserver.get('/getJoblog',(req,res)=>{
     pgsql.getJoblog((result)=>{
         res.send({result})
     })
 })
-webserver.get('/logs',(req,res)=>{
+webserver.get('/getLogs',(req,res)=>{
         pgsql.getLogs(req.jobname,req.date,(result)=>{
         res.send({result})
     })
 })
+
+webserver.get("/jobAdder",(req,res)=>{
+
+})
+webserver.get("/addJob",(req,res)=>{
+    const {process,jobName,weekday,time,path} = req.query
+    pgsql.addJob({
+        process,
+        jobName,
+        weekday,
+        time,
+        path
+    })
+})
+
+
 webserver.get('*',(req,res)=>{
     res.render('jober')
 })
