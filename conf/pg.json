@@ -1,0 +1,22 @@
+{
+    "user": "postgres",
+    "password": "postgres",
+
+    "host": "localhost",
+    "port": 1988,
+    "database": "Jober",
+    "backupdir":"\\..\\..\\backup",
+    
+    "dropQueries":[
+      "DROP TABLE public.logs",
+      "DROP TABLE public.joblog",
+      "DROP TABLE public.timetable"
+
+    ],
+    "createQueries":[
+      "CREATE TABLE public.logs (process character varying, jobname character varying, jobdate date,jobtype character varying, log character varying)",
+      "CREATE TABLE public.joblog (process character varying, jobname character varying,    filename character varying,     jstart timestamp without time zone, jend timestamp without time zone, jsignoff timestamp without time zone, syscc integer)",
+      "CREATE TABLE public.timetable (weekday integer,starttime time without time zone, process character varying, jobname character varying, filepath character varying)"
+     
+    ]
+  }

@@ -1,0 +1,32 @@
+{
+  "name": "jober",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src\\web.js start",
+    "init": "node src\\web.js init"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Obryvalin/Jober.git"
+  },
+  "keywords": [
+    "sas",
+    "jober"
+  ],
+  "author": "OBR",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Obryvalin/Jober/issues"
+  },
+  "homepage": "https://github.com/Obryvalin/Jober#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "date-format": "^3.0.0",
+    "express": "^4.17.1",
+    "hbs": "^4.1.1",
+    "pg": "^8.3.0"
+  }
+}

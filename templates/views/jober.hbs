@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/css/ObrStyle-orange.css">
+    <link rel='stylesheet' href='/css/material.min.css'>
+    <script src="/js/async.js"></script>
+    <script src='/js/material.min.js'></script>
+    <script>
+
+     
+    </script>
+</head>
+
+<body>
+    {{>header}}
+    <div class="flex-cont">
+        
+        <div id="">
+        <div class="flex-tiem" id="jobjog"></div>
+        <div class="flex-tiem" id="timetable"></div>
+        </div>
+    </div>
+   
+</body>
+<script>
+    SetInterval(()=>{fetchTable("/getJoblog","joblog")},5000)
+    SetInterval(()=>{fetchTable("/getTimetable","timetable")},5000)
+
+    </script>
+ <script src="/js/fetch.js"></script>
+
+</html>
